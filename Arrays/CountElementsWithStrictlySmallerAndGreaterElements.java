@@ -34,3 +34,44 @@ class Solution {
         return count;
     }
 }
+
+
+class Solution {
+
+    private static boolean increasing(int i , int[] nums){
+        for(int n:nums){
+            if(n<i){
+                return true;
+            }
+        }
+        
+        return false;
+    }
+
+    private static boolean decreasing(int i , int[] nums){
+        for(int n:nums){
+            if(n>i){
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public int countElements(int[] nums) {
+        boolean inc = false;
+        boolean dec = false;
+        int count=0;
+        for(int i:nums){
+            inc = increasing(i,nums);
+            dec = decreasing(i,nums);
+
+            if(inc && dec){
+                count++;
+            }
+        }
+
+        return count;
+        
+    }
+}
